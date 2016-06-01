@@ -65,9 +65,8 @@ ec2_instance = template.add_resource(ec2.Instance(
         "SliceThree",
         ImageId="ami-f5f41398",
         InstanceType="t2.nano",
-        InstanceProfileRole="applicationInstance",
         KeyName=Ref(keyname_param),
-        SecurityGroupIds="sg-a45645ae",
+        SecurityGroupIds=["sg-a45645ae"],
         SubnetId="subnet-a56576",
         Tags=[
             {
@@ -80,7 +79,7 @@ ec2_instance = template.add_resource(ec2.Instance(
             },
             {
                 'Key': 'Environment',
-                'Value': Ref(envrionment_param)
+                'Value': Ref(environment_param)
             }
         ]
 ))
